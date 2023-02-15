@@ -18,12 +18,9 @@ function hasValidPrice(product) {
 
 
 function flatten(arr) {
-	const result = [];
-	arr.forEach((element) => {
-		result.push(...element);
-	});
-	return result;
-}
+    arr = arr.reduce((element1, element2)=> element1.concat(element2), []);
+    return arr.map(item => Array.isArray(item)).includes(true) ? flatten(arr): arr;
+  }
 
 
 //El siguiente código intenta agregar un clon de una arreglo a sí mismo. No hay ningún mensaje de error, pero los resultados no son los esperados. ¿Puedes arreglar el código?
